@@ -1,5 +1,6 @@
-#holder {
+.holder {
     width: 800px;
     height: 800px;
-    background-color: aliceblue;
+    margin: 0 auto;
+    border: 1px solid black;
 }

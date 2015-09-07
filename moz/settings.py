@@ -16,6 +16,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 import web
 APP_DIR = os.path.abspath(web.__path__[0])
 
+print(BASE_DIR)
+print(APP_DIR)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 

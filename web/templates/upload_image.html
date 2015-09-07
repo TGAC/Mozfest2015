@@ -4,15 +4,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Upload</title>
-	<link rel="text/css" href="{% static "style.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}" />
 </head>
 
 <body>
 
 
-<div id="holder">
+<div class="holder">
  <form action="{% url 'upload_image' %}" method="post">
-
+	 {% csrf_token %}
+	 <label for="text_picture_of">What is the picture of?</label>
+	 <input type="text" id="text_isa" name="text_picture_of" />
+	 <br/>
+	 <label for="text_isa">What does it do?</label>
+	 <input type="text" id="text_does" name="text_does" />
+	 <br/>
+	 <label for="text_isa">What does it have?</label>
+	 <input type="text" id="text_has" name="text_has" />
+	 <br/>
+	 <input type="submit">
  </form>
 </div>
 
