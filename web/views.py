@@ -11,5 +11,5 @@ def upload_image(request):
         picture_of = request.POST['text_picture_of']
         has = request.POST['text_has']
         does = request.POST['text_does']
-        db().PUT(isa=isa, has=has, does=does)
+        db().PUT(isa=picture_of, has=has, does=does)
         return render(request, 'upload_image.html', {})
