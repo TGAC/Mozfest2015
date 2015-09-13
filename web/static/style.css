@@ -1,6 +1,8 @@
 .holder {
-    width: 800px;
-    height: 800px;
+    width: 600px;
     margin: 0 auto;
-    border: 1px solid black;
+}
+
+input{
+    margin: 25px
 }

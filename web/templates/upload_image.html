@@ -4,26 +4,67 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Upload</title>
-	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "style.css" %}"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+		  crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+			integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+			crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 
-<div class="holder">
- <form action="{% url 'upload_image' %}" method="post">
-	 {% csrf_token %}
-	 <label for="text_picture_of">What is the picture of?</label>
-	 <input type="text" id="text_isa" name="text_picture_of" />
-	 <br/>
-	 <label for="text_isa">What does it do?</label>
-	 <input type="text" id="text_does" name="text_does" />
-	 <br/>
-	 <label for="text_isa">What does it have?</label>
-	 <input type="text" id="text_has" name="text_has" />
-	 <br/>
-	 <input type="submit">
- </form>
+<div class="holder text-center">
+	<br/><br/><br/>
+	<img src="{% static "img/black_cat.jpg" %}" alt="current image to be tagged" style="height:240px"/>
+</div>
+<div class="holder text-center lead">
+	Enter as many comma delimited tags as you like...
+</div>
+<div class="row">
+
+	<div class="col-lg-3 col-md-3 col-sm-3"></div>
+	<div class="col-lg-6 col-md-6 col-sm-6">
+
+		<form action="{% url 'upload_image' %}" method="post">
+			{% csrf_token %}
+			<div class="row">
+				<div class="form-group">
+
+					<label for="text_picture_of">What is the picture of?</label>
+
+					<input type="text" id="text_isa" name="text_picture_of" class="form-control">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+
+					<label for="text_isa">What does it do?</label>
+
+					<input type="text" id="text_does" name="text_does" class="form-control"/>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+
+					<label for="text_isa">What does it have?</label>
+
+
+					<input type="text" id="text_has" name="text_has" class="form-control"/>
+
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-info pull-right">Submit</button>
+		</form>
+	</div>
+
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3"></div>
 </div>
 
 </body>

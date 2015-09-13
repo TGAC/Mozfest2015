@@ -45,6 +45,8 @@ INSTALLED_APPS = (
     'web',
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
