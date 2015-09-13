@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'web',
 )
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
