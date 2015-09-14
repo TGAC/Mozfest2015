@@ -14,24 +14,24 @@ def upload_image(request):
     	
     print('here')
     if 'img_names' in request.session:
-    	print('name in session')
-    	if request.session['finished'] == True:
-    		return HttpResponse('FINISHED')
-    	files = request.session.get('img_names')
-    	seen = request.session.get('img_seens')
-    	# now work out which image to show
-    	#pdb.set_trace()
-    	print(seen)
-    	for k in range(0, len(seen)):
-    		print(k)
-    		if seen[k] == 0:
-    			seen[k] = 1
-    			request.session['img_seens'] = seen
-    			image_to_show = files[k]
-    			if k == len(seen)-1:
-    				request.session['finished'] = True
-    			break
-    	#if we get here, we have finished iterating the images
+        print('name in session')
+        if request.session['finished'] == True:
+            return HttpResponse('FINISHED')
+        files = request.session.get('img_names')
+        seen = request.session.get('img_seens')
+        # now work out which image to show
+        #pdb.set_trace()
+        print(seen)
+        for k in range(0, len(seen)):
+            print(k)
+            if seen[k] == 0:
+                seen[k] = 1
+                request.session['img_seens'] = seen
+                image_to_show = files[k]
+                if k == len(seen)-1:
+                    request.session['finished'] = True
+                break
+        # if we get here, we have finished iterating the images
     	return HttpResponse('finished')
     else:
         # create the image list
