@@ -31,6 +31,7 @@
 
 		<form action="{% url 'upload_image' %}" method="post">
 			{% csrf_token %}
+			<input type="hidden" name="image_name" value="{{ image_to_show}}" />
 			<div class="row">
 				<div class="form-group">
 

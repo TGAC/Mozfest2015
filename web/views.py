@@ -12,7 +12,21 @@ import pdb
 def upload_image(request):
     # need to get the image list
     	
-    print('here')
+    if request.method == 'POST':
+    
+        image_name = request.POST['image_name']
+        
+        picture_of = request.POST['text_picture_of'].split(',')
+        picture_of = [x.strip(' ') for x in picture_of]
+        
+        has = request.POST['text_has'].strip().split(',')
+        has = [x.strip(' ') for x in has]
+        
+        does = request.POST['text_does'].split(',')
+        does = [x.strip(' ') for x in does]
+        
+        db().PUT(image_name=image_name, isa=picture_of, has=has, does=does)
+        
     if 'img_names' in request.session:
         print('name in session')
         if request.session['finished'] == True:
@@ -20,7 +34,7 @@ def upload_image(request):
         files = request.session.get('img_names')
         seen = request.session.get('img_seens')
         # now work out which image to show
-        #pdb.set_trace()
+        
         print(seen)
         for k in range(0, len(seen)):
             print(k)
@@ -28,11 +42,12 @@ def upload_image(request):
                 seen[k] = 1
                 request.session['img_seens'] = seen
                 image_to_show = files[k]
+
                 if k == len(seen)-1:
                     request.session['finished'] = True
                 break
         # if we get here, we have finished iterating the images
-    	return HttpResponse('finished')
+        # return HttpResponse('finished')
     else:
         # create the image list
         print('arranging image list')
@@ -47,11 +62,7 @@ def upload_image(request):
         seen[0] = 1
         image_to_show = im[0]
         
-    if request.method == 'POST':
-        picture_of = request.POST['text_picture_of']
-        has = request.POST['text_has']
-        does = request.POST['text_does']
-        db().PUT(isa=picture_of, has=has, does=does)
+    
         
     return render(request, 'upload_image.html', {'image_to_show': image_to_show})
     
